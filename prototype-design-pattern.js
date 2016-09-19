@@ -1,39 +1,12 @@
-// classical prototypal
-// var human = {
-//   species:"human",
-//   saySpecies:function(){
-//     console.log(this.species)
-//   },
-//   sayName: function(){
-//     console.log(this.name)
-//   }
-// };
-//
-// var musician = Object.create(human);
-// musican.playInstrument = function (){
-//   console.log("plays..." + this.instrument);
-// }
-//
-// var will = Object.create(musican);
-// will.name="Will"
-var human = {
-  species:"human",
-  create: function(name){     //only IE8 and newr
-    var instance = Object.create(this);
-    instance.name = name;
-    return instance;
-  },
-  saySpecies:function(){
-    console.log(this.species)
-  },
-  sayName: function(){
-    console.log(this.name)
-  }
+// Prototype
+var Car = function(make, model, color){
+  this.make = make;
+  this.model = model;
+  this.color = color;
 };
 
-var musician = Object.create(human);
-musician.playInstrument = function (){
-  console.log("plays..." + this.instrument);
-}
+Car.prototype.sayCar = function(){
+  console.log("I own a " + this.make + " " + this.model ".")
+};
 
-var will = human.create("Will");
+var honda = new Car("honda", "civic", "red");

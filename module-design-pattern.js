@@ -5,6 +5,10 @@
 // you’re returning (or revealing) properties or
 // functions that interact with private, unaccessible properties or functions.
 
+//revealing module pattern
+
+// module pattern
+
 /**
  * simple module pattern with private variable
  */

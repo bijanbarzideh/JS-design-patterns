@@ -3,28 +3,37 @@
 
 
 // insure an object only has one instance and has a global point of access to it
+// Singleton ----------------------------------------------------------
+// most common
+var hondaSingleton = {
+  make: 'Honda',
+  model: 'Civic',
+  color: 'Red';
+  sayCar: function(){
+    console.log("I own a " + make + " " + model ".")
+  }
+};
+
 
 var Singleton;
 
-(function() {
+(function(){
   var instance;
 
-  window.Singleton = function () {
-    // return the instance if we already have one
-    if (instance) {
+  window.Singleton = function(){
+    if(instance){
       return instance;
     }
-
     instance = this;
 
-    this.title = “hello”;
-
-    // functionality
-    this.foo = function() {
-      return 'bar';
-    };
+    this.make = make;
+    this.model = model;
+    this.color = color;
   };
-})();
 
-var s1 = new Singleton(); //The same as...
-var s2 = new Singleton(); //This!
+  window.Singleton.prototype.sayCar = function(){
+    console.log("I own a " + this.make + " " + this.model ".")
+  };
+
+
+};)()
